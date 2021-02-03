@@ -151,3 +151,36 @@ GET/HEAD/DELETE/PUT是幂等的，POST不是幂等的。
 **500 Internal Server Error：**通用错误码。
 
 **503 Service Unavailable：**表示服务器当前很忙，暂时无法响应服务。
+
+# 实体数据
+
+## 数据类型与编码
+
+HTTP协议作为应用层协议，在数据到底之后，还需要告诉上层应用这是什么数据。针对该问题的解决方案是“多用途互联网邮件扩展”，简称MIME，HTTP取了其中的一部分，即“MIME type”。
+
+MIME把数据分成了八大类，每个大类下再细分出多个子类，形式是“type/subtype”的字符串。
+
+常见的几个类别：
+
+1、text：即文本格式的可读数据，如text/html，text/plain，text/css。
+
+2、image：即图像文件，有image/gif，image/jpeg，image/png。
+
+3、audio/video：音频和视频数据，如audio/mpeg，video/mp4.
+
+4、application：可能是文本也可能是二进制，必须由上层应用程序来解释，如application/json，application/javascript，application/pdf。
+
+Encoding type：
+
+1、gzip；2、deflate；3、br。
+
+### 数据类型使用的头字段
+
+**Accept**字段标记的是客户端可理解的MIME type，可以用“,”做分隔符列出多个类型。
+
+服务器会在响应报文里用头字段**Content-Type**告诉实体数据的真实类型。
+
+**Accept-Encoding**字段标记的是客户端支持的压缩格式，同样也可以用“,”列出多个。
+
+服务器将实际使用的压缩格式放在响应头字段**Content-Encoding**里。
+
