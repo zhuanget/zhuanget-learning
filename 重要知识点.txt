@@ -1,0 +1,7 @@
+spring如何解决循环依赖问题；
+MySQL隔离级别，事务，日志，MVCC
+redis分布式锁；
+elasticSearch;	https://developer.aliyun.com/article/707137
+HTTP、TCP/IP；
+SpringCloud、RPC；
+Activiti
